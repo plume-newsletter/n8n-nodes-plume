@@ -1,0 +1,36 @@
+{
+  "name": "n8n-nodes-plume",
+  "version": "0.1.0",
+  "description": "n8n community node for Plume — the self-hostable newsletter platform",
+  "keywords": ["n8n-community-node-package", "plume", "newsletter", "email"],
+  "license": "MIT",
+  "homepage": "https://plumenewsletter.com",
+  "author": { "name": "Plume", "url": "https://plumenewsletter.com" },
+  "repository": { "type": "git", "url": "https://github.com/plume-newsletter/n8n-nodes-plume.git" },
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && node -e \"const fs=require('fs');for(const d of ['dist/nodes/Plume','dist/nodes/PlumeTrigger']){fs.mkdirSync(d,{recursive:true});fs.copyFileSync('nodes/Plume/plume.svg',d+'/plume.svg')}\"",
+    "lint": "eslint nodes credentials --ext .ts --no-error-on-unmatched-pattern",
+    "test": "node --test test/"
+  },
+  "files": ["dist"],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": ["dist/credentials/PlumeApi.credentials.js"],
+    "nodes": [
+      "dist/nodes/Plume/Plume.node.js",
+      "dist/nodes/PlumeTrigger/PlumeTrigger.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "@typescript-eslint/parser": "^7.15.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-n8n-nodes-base": "^1.16.3",
+    "n8n-workflow": "^1.48.0",
+    "typescript": "^5.5.3"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
+}
