@@ -11,7 +11,7 @@
   "scripts": {
     "build": "tsc && node -e \"const fs=require('fs');for(const d of ['dist/nodes/Plume','dist/nodes/PlumeTrigger']){fs.mkdirSync(d,{recursive:true});fs.copyFileSync('nodes/Plume/plume.svg',d+'/plume.svg')}\"",
     "lint": "eslint nodes credentials --ext .ts --no-error-on-unmatched-pattern",
-    "test": "node --test test/"
+    "test": "node --test \"test/**/*.test.mjs\""
   },
   "files": ["dist"],
   "n8n": {
