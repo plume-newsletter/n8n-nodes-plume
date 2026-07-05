@@ -16,7 +16,7 @@ Self-hosted n8n: **Settings → Community Nodes → Install** → `n8n-nodes-plu
 1. In Plume: **Settings → API Keys → New key** (copy the `plume_...` key — shown once).
 2. In n8n: create **Plume API** credentials with your instance's base URL (e.g. `https://news.example.com`) and the key.
 
-The credential test calls `GET /api/me`, so a wrong URL or key fails immediately.
+The credential test calls `GET /api/lists` with your key, so a wrong URL or key fails immediately.
 
 ## Example: Typeform → Plume
 

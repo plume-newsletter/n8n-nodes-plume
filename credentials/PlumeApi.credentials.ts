@@ -46,7 +46,9 @@ export class PlumeApi implements ICredentialType {
 	test: ICredentialTestRequest = {
 		request: {
 			baseURL: '={{$credentials.baseUrl.replace(new RegExp("/+$"), "")}}',
-			url: '/api/me',
+			// /api/lists, not /api/me: the me endpoint reads the session cookie
+			// directly and never accepts Bearer keys (plume auth_handlers.go).
+			url: '/api/lists',
 		},
 	};
 }
